@@ -131,7 +131,6 @@ class _CitiesSelectorState extends State<CitiesSelector> {
 
   @override
   void initState() {
-    // TODO: implement initState
     print("hotCities::::: ${widget.hotCities}");
     _cities = CitiesUtils.getAllCitiesByMeta(
         widget.provincesData ?? provincesData, widget.citiesData ?? citiesData);
@@ -148,7 +147,7 @@ class _CitiesSelectorState extends State<CitiesSelector> {
     _scrollController.addListener(() {
       _initOffsetRangList();
 //      可以用来强行关闭键盘
-//      FocusScope.of(context).requestFocus(FocusNode());
+      // FocusScope.of(context).requestFocus(FocusNode());
       _dynamicChangeTopStagePosition(_scrollController.offset.toDouble());
     });
     super.initState();
@@ -254,9 +253,9 @@ class _CitiesSelectorState extends State<CitiesSelector> {
       CityOffsetRange cityOffsetRange = _offsetTagRangeList.firstWhere(
           (CityOffsetRange range) => range.tag == alpha,
           orElse: null);
-      if (cityOffsetRange != null) {
-        _scrollController.jumpTo(cityOffsetRange.start);
-      }
+      // if (cityOffsetRange != null) {
+      _scrollController.jumpTo(cityOffsetRange.start);
+      // }
     });
   }
 
@@ -264,7 +263,8 @@ class _CitiesSelectorState extends State<CitiesSelector> {
   Widget _buildCenterModal() {
     return Center(
       child: Card(
-        color: Colors.black54,
+        // color: Colors.black54,
+        color: Theme.of(context).cardColor,
         child: Container(
           alignment: Alignment.center,
           width: 80.0,
@@ -273,7 +273,9 @@ class _CitiesSelectorState extends State<CitiesSelector> {
             _tagName ?? '',
             style: TextStyle(
               fontSize: 32.0,
-              color: Colors.white,
+              // color: Colors.white,
+              color:
+                  Theme.of(context).textTheme.bodyText1?.color ?? Colors.white,
             ),
           ),
         ),
@@ -362,7 +364,7 @@ class _CitiesSelectorState extends State<CitiesSelector> {
                   child: ListTileTheme(
                     selectedColor:
                         widget.itemSelectFontColor ?? theme.primaryColor,
-                    textColor: widget.itemFontColor ?? theme.accentColor,
+                    textColor: widget.itemFontColor ?? theme.colorScheme.secondary,
                     child: ListTile(
                       selected: selected,
                       title: Text(_cities[index].name,
@@ -414,19 +416,19 @@ class _CitiesSelectorState extends State<CitiesSelector> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-            title: Text(
-          widget.title,
-        )),
-        body: SafeArea(
-          bottom: true,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                  flex: 1, child: Stack(children: _buildChildren(context))),
-            ],
-          ),
-        ));
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: AppBar(
+          title: Text(
+        widget.title,
+      )),
+      body: SafeArea(
+        bottom: true,
+        child: Column(
+          children: <Widget>[
+            Expanded(flex: 1, child: Stack(children: _buildChildren(context))),
+          ],
+        ),
+      ),
+    );
   }
 }

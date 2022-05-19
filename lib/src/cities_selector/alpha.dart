@@ -73,24 +73,23 @@ class Alpha extends StatefulWidget {
   /// 激活状态下字体的颜色
   final Color fontActiveColor;
 
-  Alpha(
-      {
+  Alpha({
+    /// 字母列表的高度大小与字体大小
+    this.alphaItemSize = 14,
 
-      /// 字母列表的高度大小与字体大小
-      this.alphaItemSize = 14,
+    /// 可供选择的字母集
+    this.alphas = ALPHAS_INDEX,
 
-      /// 可供选择的字母集
-      this.alphas = ALPHAS_INDEX,
-
-      /// 当右侧字母集, 因触摸而产生的回调
-      this.onAlphaChange,
-      this.onTouchStart,
-      this.onTouchMove,
-      this.onTouchEnd,
-      this.activeBgColor = Colors.green,
-      this.bgColor = Colors.yellow,
-      this.fontColor = Colors.black,
-      this.fontActiveColor = Colors.yellow});
+    /// 当右侧字母集, 因触摸而产生的回调
+    this.onAlphaChange,
+    this.onTouchStart,
+    this.onTouchMove,
+    this.onTouchEnd,
+    this.activeBgColor = Colors.green,
+    this.bgColor = Colors.yellow,
+    this.fontColor = Colors.black,
+    this.fontActiveColor = Colors.yellow,
+  });
 
   @override
   AlphaState createState() {
@@ -146,19 +145,20 @@ class AlphaState extends State<Alpha> {
     this.setState(() {
       isTouched = true;
     });
-    if (tag != null) {
-      _onAlphaChange(tag);
-    }
+    // if (tag != null) {
+    _onAlphaChange(tag);
+    // }
 
-    if (widget.onTouchStart != null && tag != null) {
+    // if (widget.onTouchStart != null && tag != null) {
+    if (widget.onTouchStart != null) {
       widget.onTouchStart!();
     }
   }
 
   _touchMoveEvent(String tag) {
-    if (tag != null) {
-      _onAlphaChange(tag);
-    }
+    // if (tag != null) {
+    _onAlphaChange(tag);
+    // }
     if (widget.onTouchMove != null) {
       widget.onTouchMove!();
     }

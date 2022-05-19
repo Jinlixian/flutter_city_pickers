@@ -49,7 +49,6 @@ class Result {
   /// string json
   @override
   String toString() {
-    //TODO: implement toString
     Map<String, dynamic> obj = {
       'provinceName': provinceName,
       'provinceId': provinceId,

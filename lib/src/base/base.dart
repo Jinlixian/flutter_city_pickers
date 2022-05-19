@@ -512,7 +512,6 @@ class _MyCityPicker extends StatefulWidget {
 class _MyCityPickerState extends State<_MyCityPicker> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -547,24 +546,24 @@ class _MyCityPickerState extends State<_MyCityPicker> {
 
                 String text = widget.itemList![index];
 
-                // TODO 根据字数调整字体大小，不够优雅，可以改为根据函数计算字体大小
+                //  根据字数调整字体大小，不够优雅，可以改为根据函数计算字体大小
                 double fontSize = 13;
-                if (text != null) {
-                  int len = text.length;
-                  if (len >= 1 && len <= 3) {
-                    fontSize = 20;
-                  } else if (len > 3 && len <= 4) {
-                    fontSize = 18;
-                  } else if (len > 4 && len <= 5) {
-                    fontSize = 16;
-                  } else if (len > 5 && len <= 6) {
-                    fontSize = 12;
-                  } else if (len > 6 && len <= 9) {
-                    fontSize = 10;
-                  } else if (len > 9) {
-                    fontSize = 7;
-                  }
+                // if (text != null) {
+                int len = text.length;
+                if (len >= 1 && len <= 3) {
+                  fontSize = 20;
+                } else if (len > 3 && len <= 4) {
+                  fontSize = 18;
+                } else if (len > 4 && len <= 5) {
+                  fontSize = 16;
+                } else if (len > 5 && len <= 6) {
+                  fontSize = 12;
+                } else if (len > 6 && len <= 9) {
+                  fontSize = 10;
+                } else if (len > 9) {
+                  fontSize = 7;
                 }
+                // }
                 return Center(
                   child: Text(
                     '$text',

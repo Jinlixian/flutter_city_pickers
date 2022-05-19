@@ -185,10 +185,11 @@ class _FullPageState extends State<FullPage> {
   }
 
   Point? _getTargetChildFirst(Point target) {
-    if (target == null) {
-      return null;
-    }
-    if (target.child != null && target.child.isNotEmpty) {
+    // if (target == null) {
+    //   return null;
+    // }
+    // if (target.child != null && target.child.isNotEmpty) {
+    if (target.child.isNotEmpty) {
       return target.child.first;
     }
     return null;
@@ -312,7 +313,8 @@ class _FullPageState extends State<FullPage> {
     return WillPopScope(
       onWillPop: back,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           title: _buildHead(),
         ),

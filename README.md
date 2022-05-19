@@ -1,4 +1,8 @@
 Language: [English](https://github.com/hanxu317317/city_pickers/blob/master/README-en.md)
+
+# Clone from 
+
+https://github.com/hanxu317317/city_pickers
 # city_pickers
 
 中国的城市三级联动选择器
@@ -128,9 +132,6 @@ print('result>>> ${cityPickerUtils.getAreaResultByCode('100100)}');
 
 // 输出为: result>>>> {"provinceName":"北京市","provinceId":"110000","cityName":"东城区","cityId":"110101"}
 ```
-
-
-
 
 # 数据来源
 
